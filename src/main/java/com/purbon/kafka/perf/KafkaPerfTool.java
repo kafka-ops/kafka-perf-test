@@ -21,7 +21,6 @@ public class KafkaPerfTool {
 
     private static final Logger log = LogManager.getLogger(KafkaPerfTool.class);
 
-
     private ThreadPoolExecutor service;
     private List<WriterAction> actions;
 
@@ -49,7 +48,7 @@ public class KafkaPerfTool {
            service.submit(action);
         }
 
-        for(; true; ) {
+        while(true) {
             String msg = generate();
             queue.add(msg);
         }
